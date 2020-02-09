@@ -2,7 +2,7 @@ import React,{ useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faList, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons'
+import { faList, faLock } from '@fortawesome/free-solid-svg-icons'
 // import axios from 'axios'
 import './Home.css'
 
@@ -11,7 +11,7 @@ const Home = () =>{
   const [word,setWord] = useState('')
 
   // useSelector untuk mengambil state dari store
-  const [words,setWords] = useState(useSelector(state => state.words))
+  const words = useSelector(state => state.words)
   const randomWord = ()=>{
     const randomId = Math.floor((Math.random() * words.length) + 0);
     (words[randomId]===word) ? randomWord() : setWord(words[randomId])

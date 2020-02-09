@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import {useDispatch} from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import './AddWord.css'
@@ -10,11 +10,6 @@ const AddWord = () =>{
   const handleWord = (e) => {
     setWord(e.target.value)
   }
-
-  // useEffect(()=>{
-  //   console.log(word)   
-  // },[word])
-
   const addWord = (e)=>{
     e.preventDefault()
     // dispatch to reducer with react hooks
