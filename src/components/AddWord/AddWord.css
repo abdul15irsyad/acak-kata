@@ -1,0 +1,15 @@
+.add-word .col-auto{
+  margin-top: -100px;
+  width: 30vw;
+}
+.add-word form .btn{
+  width: 45%;
+}
+.add-word form .btn.add{
+  margin-right: 10%;
+}
+@media (max-width: 870px){
+  .add-word .col-auto{
+    width: 80%;
+  }
+}
