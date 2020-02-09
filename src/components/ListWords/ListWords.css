@@ -2,6 +2,7 @@
   width: 40%;
 }
 .list-word .back{
+  z-index: 100;
   position: fixed;
   /* font-size: 14px !important; */
   width: 46px;
@@ -39,6 +40,7 @@
   cursor: pointer;
 }
 .list-word .plus{
+  z-index: 100;
   position: fixed;
   font-size: 24px !important;
   width: 60px;
