@@ -1,28 +1,35 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { DELETE_WORD } from '../../actions/actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes,faPlus, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faTimes,faPlus, faArrowLeft, faRandom } from '@fortawesome/free-solid-svg-icons'
 import './ListWords.css'
 
 const ListWords = ()=>{
+  document.title = 'Acak Kata | Daftar Kata'
+  const history = useHistory()
   const dispatch = useDispatch()
   const words = useSelector(state => state.words).sort((a,b)=>(a.toLowerCase()>b.toLowerCase())?1:-1)
+  const RandomThis = (word) => {
+    history.push('/',{word})
+  }
   const List = ()=>{
     return words.map((word,index)=>{
       return(
         <li key={index}>
           {word}
-          <span>
+          <span className="delete">
             <FontAwesomeIcon icon={faTimes} onClick={()=>deleteWord(word)}/>
+          </span>
+          <span className="use">
+            <FontAwesomeIcon icon={faRandom} onClick={()=>RandomThis(word)}/>
           </span>
         </li>
       )
     })
   }
-  const deleteWord = (word)=>{
-    dispatch({type:"DELETE_WORD",payload:word})
-  }
+  const deleteWord = word => dispatch(DELETE_WORD(word))
   return(
     <div className="container-fluid list-word">
       <Link to="/" className="btn btn-primary back">

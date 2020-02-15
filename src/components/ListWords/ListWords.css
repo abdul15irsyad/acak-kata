@@ -33,7 +33,14 @@
   margin-bottom: 8px;
   padding: 5px 10px;
 }
-.list-word li span{
+.list-word li span.use{
+  float: right;
+  margin-right: 10px;
+  color: rgb(106, 90, 252);
+  font-size: 20px;
+  cursor: pointer;
+}
+.list-word li span.delete{
   float: right;
   color: rgb(219, 73, 73);
   font-size: 20px;

@@ -2,6 +2,10 @@
   margin-top: -100px;
   width: 30vw;
 }
+.add-word small#message{
+  display: none;
+  color: rgb(255, 72, 72);
+}
 .add-word form .btn{
   width: 45%;
 }
