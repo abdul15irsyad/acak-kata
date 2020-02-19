@@ -13,7 +13,9 @@ const Home = ({location}) =>{
   // useSelector untuk mengambil state dari store
   const words = useSelector(state => state.words)
   const randomWord = ()=>{
-    location.state.word = undefined
+    if(location.state){
+      location.state.word = undefined
+    }
     const randomId = Math.floor((Math.random() * words.length) + 0);
     (words[randomId]===word) ? randomWord() : setWord(words[randomId])
   }
