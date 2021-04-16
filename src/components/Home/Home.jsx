@@ -51,7 +51,6 @@ const Home = ({ location }) => {
         <div className="col-auto text-center">
           <div className="title text-center mb-3">
             <h2 className="mb-0 pb-0">Acak Kata</h2>
-            {/* <a href="https://github.com/abdul15irsyad" target="blank">by : abdulirsyad</a> */}
           </div>
           <button className="btn btn-success random mb-3" onClick={randomWord}>Acak Kata</button>
           <br></br>

@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-sequences */
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { DELETE_WORD } from '../../actions/actions'
@@ -10,7 +12,6 @@ const ListWords = () => {
   document.title = 'Acak Kata | Daftar Kata'
   const history = useHistory()
   const dispatch = useDispatch()
-  const [query, setQuery] = useState('')
   const words = useSelector(state => state.words).sort((a, b) => (a.toLowerCase() > b.toLowerCase()) ? 1 : -1)
   const RandomThis = (word) => {
     history.push('/', { word })
@@ -32,15 +33,6 @@ const ListWords = () => {
   }
   const deleteWord = word => dispatch(DELETE_WORD(word))
 
-  const SearchBar = () => {
-    return <input type="text" className="form-control text-center mb-3" name="query" placeholder="search here..." value={query} onChange={handleQuery} />
-  }
-
-  const handleQuery = e => {
-    e.preventDefault()
-    setQuery(e.target.value)
-  }
-
   return (
     <div className="container-fluid list-word">
       <Link to="/" className="btn btn-primary back">
@@ -50,7 +42,6 @@ const ListWords = () => {
         <div className="col-auto text-center">
           <h2>Daftar Kata</h2>
           <h6>{words.length} kata</h6>
-          <SearchBar />
           <ul>
             <List />
           </ul>
